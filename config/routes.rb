@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
 
   resources :users, only: [:index, :new, :create, :edit, :show]
+  resources :teams, only: [:index, :new, :create, :edit, :show]
+  resources :games, only: [:index, :new, :create, :edit, :show]
 end

@@ -2,19 +2,13 @@ User:<br>
 <%= @user.first_name %> <br>
 <%= @user.last_name %> <br>
 
-Games:<br>
-<ul>
-  <% @games.each do |game| %>
-    <li><%= link_to game.home_team_id %><br>
-    <%= link_to game.away_team_id %><br></li>
-  <% end %>
-</ul>
+
 
 Teams: <br>
 <ul>
   <% @user.teams.each do |team| %>
-    <li><%= link_to team.name, team %></li><br>
-    <li><%= link_to team.captain.username %></li><br>
+    <li><%= link_to team.name, team %><br>
+    <li><%= link_to team.captain.username, team.captain %></li><br>
   <% end %>
 </ul>
 
