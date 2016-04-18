@@ -12,5 +12,9 @@ class User < ActiveRecord::Base
     accepted_invites = self.invitations.where(accepted: true)
     return accepted_invites.map {|invitation| invitation.game}
   end
+  def pending_invites
+    pending_invites = self.invitations.where(accepted: false)
+    return pending_invites.map {|invitation| invitation.game}
+  end
 
 end
