@@ -3,20 +3,31 @@ User:<br>
 <%= @user.last_name %> <br>
 
 Games:<br>
-<% @games.each do |game| %>
-  <%= game.home_team_id %><br>
-  <%= game.away_team_id %><br>
-<% end %>
+<ul>
+  <% @games.each do |game| %>
+    <li><%= game.home_team_id %><br>
+    <%= game.away_team_id %><br></li>
+  <% end %>
+</ul>
 
 Teams: <br>
-<% @teams.each do |team| %>
-  <%= team.name %><br>
-  <%= team.captain_id %><br>
-<% end %>
-
-Invites<br>
-  <% @invitiation.each do |invite| %>
-    <%= invite.game_id %><br>
+<ul>
+  <% @user.teams.each do |team| %>
+    <li><%= team.name %></li><br>
+    <li><%= team.captain.username %></li><br>
   <% end %>
+</ul>
 
-Season Stats<br>
+Pending Invites<br>
+  <ul>
+    <% @user.pending_invites.each |pending| %>
+      <li><%= pending.game_id %></li><br>
+    <% end %>
+  </ul>
+
+  Accepted Invites<br>
+    <ul>
+      <% @user.accepted_games.each |accepted| %>
+        <li><%= accepted.game_id %></li><br>
+      <% end %>
+    </ul>
