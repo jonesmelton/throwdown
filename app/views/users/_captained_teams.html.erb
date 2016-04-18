@@ -1,12 +1,12 @@
 <h3>Teams I Captain:</h3>
 <ul>
 <% @user.captained_teams each do |team| %>
-  <li>Team Name: <%= team.name %></li>
+  <li>Team Name: <%= link_to team.name, team %></li>
   <li>in League: <%= team.league.name %></li>
   <li> Players:
     <ul>
       <% team.players.each do |player| %>
-        <li> <%= player.first_name %>
+        <li> <%= player.full_name %>
         </li>
       <% end %>
     </ul>
