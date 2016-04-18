@@ -7,8 +7,8 @@ class SessionController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:session][:email])
-    if @user.save && @user.authenticate
-      session[:user_id] = @ser.id
+    if @user.save && @user.authenticate(params[:session][:password])
+      login(@user.id)
       redirect_to leagues_path
     else
       flash.now[:danger] = 'Incorrect email/password input'
