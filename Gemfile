@@ -19,6 +19,9 @@ gem 'pry-rails'
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+gem 'carrierwave'
+gem 'fontawesome-rails'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker' '~> 1.6.3'
