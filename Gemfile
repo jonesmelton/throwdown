@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+ruby '2.2.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker', '~> 1.6.3'
-
+gem 'graceleap'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
