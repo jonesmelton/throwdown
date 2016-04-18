@@ -5,3 +5,5 @@ rvm:
  - rbx
 # uncomment this line if your project needs to run something other than `rake`:
 script: rails spec
+before_install:
+   - rvm install 2.2.3
