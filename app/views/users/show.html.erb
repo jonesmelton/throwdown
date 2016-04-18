@@ -20,14 +20,14 @@ Teams: <br>
 
 Pending Invites<br>
   <ul>
-    <% @user.pending_invites.each |pending| %>
+    <% @user.pending_invites.each do |pending| %>
       <li><%= pending.game_id %></li><br>
     <% end %>
   </ul>
 
   Accepted Invites<br>
-    <ul>
-      <% @user.accepted_games.each |accepted| %>
-        <li><%= accepted.game_id %></li><br>
-      <% end %>
-    </ul>
+  <ul>
+    <% @user.accepted_games.each do |accepted| %>
+      <li><%= accepted.game_id %></li><br>
+    <% end %>
+  </ul>
