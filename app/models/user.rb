@@ -16,5 +16,8 @@ class User < ActiveRecord::Base
     pending_invites = self.invitations.where(accepted: false)
     return pending_invites.map {|invitation| invitation.game}
   end
+  def full_name
+    self.first_name + " " + self.last_name
+  end
 
 end
