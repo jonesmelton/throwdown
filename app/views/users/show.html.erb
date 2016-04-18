@@ -1,2 +1,33 @@
-<%= @user.f_name %>
-<%= @user.l_name %>
+User:<br>
+<%= @user.first_name %> <br>
+<%= @user.last_name %> <br>
+
+Games:<br>
+<ul>
+  <% @games.each do |game| %>
+    <li><%= game.home_team_id %><br>
+    <%= game.away_team_id %><br></li>
+  <% end %>
+</ul>
+
+Teams: <br>
+<ul>
+  <% @user.teams.each do |team| %>
+    <li><%= team.name %></li><br>
+    <li><%= team.captain.username %></li><br>
+  <% end %>
+</ul>
+
+Pending Invites<br>
+  <ul>
+    <% @user.pending_invites.each do |pending| %>
+      <li><%= pending.game_id %></li><br>
+    <% end %>
+  </ul>
+
+  Accepted Invites<br>
+  <ul>
+    <% @user.accepted_games.each do |accepted| %>
+      <li><%= accepted.game_id %></li><br>
+    <% end %>
+  </ul>
