@@ -11,7 +11,7 @@ class SessionController < ApplicationController
       log_in(@user)
       puts "user id:--------------------------------------"
       puts session[:user_id]
-      redirect_to user_show_path
+      redirect_to user_path(@user)
     else
       flash.now[:danger] = 'Incorrect username/password input'
       render 'new'
