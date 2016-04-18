@@ -4,6 +4,7 @@ module SessionHelper
   end
 
   def logged_in?
+    puts "logged in? #{session[:user_id] != nil}"
     session[:user_id] != nil
   end
 
