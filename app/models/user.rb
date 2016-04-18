@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_secure_password 
+  has_secure_password
 
   has_many :user_images
   has_many :registrations, foreign_key: :player_id

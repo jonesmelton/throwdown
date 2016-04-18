@@ -15,4 +15,9 @@ class SessionController < ApplicationController
       render 'new'
     end
   end
+
+  def logout
+    logout
+  end
+
 end

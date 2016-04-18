@@ -21,4 +21,8 @@ module SessionHelper
   def owner?(item)
     item.user_id == current_user.id
   end
+
+  def user_name
+    User.find(session[:user_id]).username
+  end
 end

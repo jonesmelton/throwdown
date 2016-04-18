@@ -1,0 +1,10 @@
+<ul class="navbar">
+  <li class="nav-item logo">Throwdown</li>
+  <% if logged_in?%>
+    <li class="nav-item"><%= user_name %></li>
+    <li class="nav-item">Log out</li>
+  <% else %>
+    <li class="nav-item">Log in</li>
+    <li class="nav-item">Sign up</li>
+  <% end %>
+</ul>
