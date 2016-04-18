@@ -5,29 +5,29 @@ User:<br>
 Games:<br>
 <ul>
   <% @games.each do |game| %>
-    <li><%= game.home_team_id %><br>
-    <%= game.away_team_id %><br></li>
+    <li><%= link_to game.home_team_id %><br>
+    <%= link_to game.away_team_id %><br></li>
   <% end %>
 </ul>
 
 Teams: <br>
 <ul>
   <% @user.teams.each do |team| %>
-    <li><%= team.name %></li><br>
-    <li><%= team.captain.username %></li><br>
+    <li><%= link_to team.name, team %></li><br>
+    <li><%= link_to team.captain.username %></li><br>
   <% end %>
 </ul>
 
 Pending Invites<br>
   <ul>
     <% @user.pending_invites.each do |pending| %>
-      <li><%= pending.game_id %></li><br>
+      <li><%= link_to "#{pending.home_team.name} vs. #{pending.away_team.name}", pending %></li><br>
     <% end %>
   </ul>
 
   Accepted Invites<br>
   <ul>
     <% @user.accepted_games.each do |accepted| %>
-      <li><%= accepted.game_id %></li><br>
+      <li><%= link_to "#{accepted.home_team.name} vs. #{accepted.away_team.name}", accepted %></li><br>
     <% end %>
   </ul>
