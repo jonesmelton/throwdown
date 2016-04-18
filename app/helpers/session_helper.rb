@@ -4,6 +4,7 @@ module SessionHelper
   end
 
   def logged_in?
+    puts "logged in? #{session[:user_id] != nil}"
     session[:user_id] != nil
   end
 
@@ -20,5 +21,9 @@ module SessionHelper
 
   def owner?(item)
     item.user_id == current_user.id
+  end
+
+  def user_name
+    User.find(session[:user_id]).username
   end
 end
