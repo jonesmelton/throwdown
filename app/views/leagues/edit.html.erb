@@ -1,0 +1,11 @@
+<%= form_for @league do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.submit %>
+<% end %>
+
+<%= form_for @league.season do |f| %>
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %><br>
+  <%= f.submit %>
+<% end %>

@@ -1,5 +1,5 @@
 class Season < ActiveRecord::Base
 
-  has_many :leagues
+  belongs_to :league
 
 end

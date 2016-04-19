@@ -1,11 +1,17 @@
 <%= form_for @game do |f| %>
-  <%= f.label :home_team_id %>
-  <%= f.text_area :home_team_id %><br>
-  <%= f.label :away_team_id %>
-  <%= f.text_area :away_team_id %><br>
+<%= f.label :home_team %>
+<%= f.select (:home_team_id) do %>
+  <% cteams_array = current_user.captained_teams.all.map { |team| [team.name, team.id] } %>
+  <%= options_for_select(cteams_array) %>
+<% end %><br>
+  <%= f.label :away_team %>
+<%= f.select(:away_team_id) do %>
+  <% all_teams = Team.all.map{|team| [team.name, team.id]} %>
+  <%= options_for_select(all_teams) %>
+<% end %><br>
   <%= f.label :location %>
-  <%= f.text_area :location %> <br>
+  <%= f.text_field :location %> <br>
   <%= f.label :start_time %>
-  <%= f.time_field :start_time%><br>
+  <%= f.text_field :start_time%><br>
   <%= f.submit %><br>
 <% end %>

@@ -1,3 +1,25 @@
-<% @leagues.each do |league| %>
-  <%= league.name %>
-<% end %>
+<div class="row">
+  <div class="panel panel-default col-md-8 col-md-offset-2 user-table ">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Leagues</div>
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>League Name</th>
+        <th>Sport</th>
+        <th>Commissioner</th>
+
+      </tr>
+      <% @leagues.each do |league| %>
+      <tr>
+        <td><%= league.name %></td>
+        <td><%= league.sport.name %></td>
+        <td> <%= league.commissioner.username %> </td>
+        <% if is_league_commissioner?(league) %>
+          <td><%= link_to "Edit", edit_league_path(league) %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
