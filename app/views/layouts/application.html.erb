@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
   <title>Throwdown</title>
   <script src="https://maps.googleapis.com/maps/api/js"></script>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -11,9 +12,9 @@
 <body>
 
 <%= render "session/navbar"%>
-<div class="container">
+<main class="container">
 <%= yield %>
-</div>
+</main>
 
 </body>
 </html>

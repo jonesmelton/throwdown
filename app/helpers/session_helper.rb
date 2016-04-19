@@ -14,7 +14,7 @@ module SessionHelper
     end
   end
 
-  def logout
+  def log_out
     session.delete(:user_id)
     current_user = nil
   end
@@ -26,4 +26,14 @@ module SessionHelper
   def user_name
     User.find(session[:user_id]).username
   end
+
+  def is_captain?(game)
+    game.captains.each do |captain|
+      if captain.id == current_user.id
+        return true
+      end
+    end
+    return false
+  end
+
 end

@@ -1,8 +1,23 @@
-User:<br>
-<%= @user.first_name %> <br>
-<%= @user.last_name %> <br>
+<h2>User:
+<%= @user.first_name %>
+<%= @user.last_name %></h2>
 
 <div class="row">
+    <div class="panel panel-default col-md-5 user-table">
+      <!-- Default panel contents -->
+      <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Sports Played</div>
+      <!-- Table -->
+      <table class="table">
+        <tr>
+          <th>Sport Name</th>
+        </tr>
+        <% @user.played_sports.each do |sport| %>
+        <tr>
+          <td><%= sport.name %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
     <div class="panel panel-default col-md-5 col-md-offset-1 user-table ">
       <!-- Default panel contents -->
       <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> <%= @user.username%>'s Teams:</div>
@@ -51,15 +66,19 @@ User:<br>
       <!-- Table -->
       <table class="table">
         <tr>
+          <th>Game</th>
           <th>Home Team</th>
           <th>Away Team</th>
         </tr>
       <% @user.accepted_games.each do |accepted| %>
         <tr>
-          <td><%= link_to accepted.home_team.name, accepted %></td>
-          <td><%= link_to accepted.away_team.name, accepted %></td>
+          <td><%= link_to accepted.id, game_path(accepted) %></td>
+          <td><%= link_to accepted.home_team.name, team_path(accepted.home_team) %></td>
+          <td><%= link_to accepted.away_team.name, team_path(accepted.away_team) %></td>
         </tr>
         <% end %>
       </table>
   </div>
+
+<%= render "captained_teams" %>
 </div>
