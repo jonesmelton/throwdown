@@ -5,9 +5,14 @@
     <th>Captain</th>
   </tr>
   <% @user.teams.each do |team| %>
-  <tr>
+  <tr<% if logged_in? && current_user == team.captain %>
+    class="info"  
+  <% end %>>
     <td id="team-<%= team.id %>-link"><%= link_to team.name, team, class: "user-team-link" %></td>
-    <td><%= link_to team.captain.username, team.captain %></td>
+    <td>
+      <%= link_to team.captain.username, team.captain %>
+     
+    </td>
   </tr>
   <% end %>
 </table>

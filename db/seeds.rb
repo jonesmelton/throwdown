@@ -45,15 +45,9 @@ all_teams = Team.all
 end
 
 100.times do
-<<<<<<< HEAD
   home_team = all_teams.sample
   away_team = all_teams.sample
   season = all_seasons.sample
-=======
-
-  home_team = all_teams.sample
-  away_team = all_teams.sample
->>>>>>> 739d216294df50755cb471e49ad3abd369376b8e
   winner_team = [home_team, away_team].sample
   game = Game.new(home_team: home_team, away_team: away_team, winner_team: winner_team, location: Faker::Address.street_address, season: season )
   season_start = game.season.start_date
