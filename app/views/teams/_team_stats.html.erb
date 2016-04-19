@@ -1,3 +1,12 @@
 <div role="tabpanel" class="tab-pane" id="stats">
-  Team stats will go here
+  <h4>Games Won: <%= @team.win_count %></h4>
+  <h4>Games Lost: <%= @team.loss_count %></h4>
+  
+  <div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped" style="width: <%= @team.win_percentage %>%">
+    </div>
+    <div class="progress-bar progress-bar-danger progress-bar-striped" style="width: <%= @team.loss_percentage %>%">
+    </div>
+  </div>
+
 </div>
