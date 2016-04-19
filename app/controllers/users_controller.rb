@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def new
     @user = User.new
-    render 'users/new'
+    if request.xhr?
+      render 'users/_new', layout: false
+    else
+      render 'users/new'
+    end
   end
 
   def create

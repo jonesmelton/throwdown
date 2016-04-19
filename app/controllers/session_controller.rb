@@ -2,7 +2,12 @@ class SessionController < ApplicationController
 
   def new
     @user = User.new
-    render 'new'
+    if request.xhr?
+      puts "Inside ajax--------------------------------------------"
+      render 'session/_new', layout: false
+    else
+      render 'new'
+    end
   end
 
   def login

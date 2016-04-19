@@ -8,8 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= render "session/navbar"%>
+<!-- removes nav-bar for landing page -->
+<% unless request.env['PATH_INFO'] == '/' %>
+  <%= render "session/navbar"%>
+<% end %>
 <main class="container">
 <%= yield %>
 </main>
