@@ -6,6 +6,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :winner_team_id
       t.datetime :start_time
       t.string  :location
+      t.integer :season_id
 
       t.timestamps null: false
     end

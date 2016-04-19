@@ -1,0 +1,13 @@
+<%= form_for @season do |f| %>
+<%= f.label :league %>
+<%= f.select (:league_id) do %>
+  <% all_leagues = League.all.map{|league| [league.name, league.id]} %>
+  <%= options_for_select(all_leagues) %>
+<% end %><br>
+
+  <%= f.label :start_date %>
+  <%= f.text_field :start_date %><br>
+  <%= f.label :end_date %>
+  <%= f.text_field :end_date %><br>
+  <%= f.submit %>
+<% end %>
