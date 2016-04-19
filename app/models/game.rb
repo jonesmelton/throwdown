@@ -5,12 +5,26 @@ class Game < ActiveRecord::Base
   belongs_to :winner_team, class_name: "Team", foreign_key: :winner_team_id
   has_many :invitations
 
+  def accepted_invitations
+    self.invitations.where(accepted: true)
+  end
+
   def participants
-    accepted_invitations = self.invitations.where(accepted: true)
     return accepted_invitations.map do |invitation|
       invitation.user
     end
   end
+
+  def home_participants
+    home_invitations = accepted_invitations.select {|i| i.team == self.home_team}
+    return home_invitations.map {|i| i.user }
+  end
+
+  def away_participants
+    away_invitations = accepted_invitations.select {|i| i.team == self.away_team}
+    return away_invitations.map {|i| i.user }
+  end
+
   def date
     time = self.start_time
     time.strftime("%m-%d-%Y")
@@ -33,6 +47,7 @@ class Game < ActiveRecord::Base
       false
     end
   end
+
 
 
 end

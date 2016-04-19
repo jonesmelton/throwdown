@@ -1,0 +1,11 @@
+<%= form_for @game do |f| %>
+  <%= f.label :home_team_id %>
+  <%= f.text_area :home_team_id %><br>
+  <%= f.label :away_team_id %>
+  <%= f.text_area :away_team_id %><br>
+  <%= f.label :location %>
+  <%= f.text_area :location %> <br>
+  <%= f.label :start_time %>
+  <%= f.time_field :start_time%><br>
+  <%= f.submit %><br>
+<% end %>

@@ -9,13 +9,13 @@
   <div class="panel-body">
     Date: <%= @game.date %><br>
     Time: <%= @game.time %><br>
-    Location: <%= @game.location %><br>
+    Location: <span id="location"><%= @game.location %></span><br>
     Player Count: <%= @game.participants.count %>
   </div>
 </div>
 
 <div id="map">
-  
+
 </div>
 
 <div class="panel panel-default col-md-4 col-md-offset-4 user-table ">
