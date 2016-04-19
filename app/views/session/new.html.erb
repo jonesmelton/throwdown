@@ -1,5 +1,5 @@
   <h2 class="text-center">Login</h2>
-  <%= form_for :session, url: login_path do |f| %>
+  <%= form_for :session, url: login_path, html: {id: "login-form"} do |f| %>
   <div class="form-group">
       <%= f.label :username %><br>
       <%= f.text_field :username, class: "form-control" %>
