@@ -1,0 +1,12 @@
+<table class="table">
+  <tr>
+    <th>Location/time</th>
+    <th>Opponent</th>
+  </tr>
+  <% @user.next_ten.each do |game|%>
+    <tr>
+      <th><%= game.location %><br><%=  game.start_time.to_date %></th>
+      <th><%= game.home_team.name %> Vs<br><%=  game.away_team.name %></th>
+    </tr>
+  <% end %>
+</table>
