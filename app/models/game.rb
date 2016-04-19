@@ -12,4 +12,5 @@ class Game < ActiveRecord::Base
     end
   end
 
+
 end
