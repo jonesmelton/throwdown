@@ -11,6 +11,14 @@ class Game < ActiveRecord::Base
       invitation.user
     end
   end
+  def date
+    time = self.start_time
+    time.strftime("%m-%d-%Y")
+  end
+  def time
+    time = self.start_time
+    time.strftime("%H:%M")
+  end
 
 
 end

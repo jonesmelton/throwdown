@@ -29,14 +29,16 @@ Record: <%= @team.win_count %> - <%= @team.loss_count %><br>
     <table class="table">
       <tr>
         <th>Date</th>
+        <th>Start Time</th>
         <th>Location</th>
         <th>Home Team</th>
         <th>Away Team</th>
       </tr>
       <% @team.upcoming_games.each do |game| %>
       <tr>
-        <td><%= game.start_time %></td>
-        <td> TBD </td>
+        <td><%= game.date %></td>
+        <td><%= game.time %></td>
+        <td> <%= game.location %> </td>
         <td><%= "#{game.home_team.name} (#{game.home_team.win_count}-#{game.home_team.loss_count})" %></td>
         <td><%= "#{game.away_team.name} (#{game.away_team.win_count}-#{game.away_team.loss_count})" %></td>
       </tr>
@@ -59,8 +61,8 @@ Record: <%= @team.win_count %> - <%= @team.loss_count %><br>
       </tr>
       <% @team.finished_games.each do |game| %>
       <tr>
-        <td><%= game.start_time %></td>
-        <td> TBD </td>
+        <td><%= game.date %></td>
+        <td> <%= game.location %> </td>
         <td><%= "#{game.home_team.name} (#{game.home_team.win_count}-#{game.home_team.loss_count})" %></td>
         <td><%= "#{game.away_team.name} (#{game.away_team.win_count}-#{game.away_team.loss_count})" %></td>
         <td><%= game.winner_team.name %></td>
