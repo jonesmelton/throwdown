@@ -1,5 +1,12 @@
 <h2><%= @user.full_name %>'s Profile</h2>
 <%= render "user_tabs" %>
-<div class="app-wrapper">
-  <%= render "user_teams" %>
+<div class="container">
+  <div class="row">
+    <div class="app-wrapper col-md-8">
+      <%= render "user_teams" %>
+    </div>
+    <div class="user-sidebar bg-primary col-md-3">
+      <h2><i class="fa fa-clock-o" aria-hidden="true"></i> My Schedule</h2>
+    </div>
+  </div>
 </div>
