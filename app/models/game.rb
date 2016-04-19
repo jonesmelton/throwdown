@@ -42,7 +42,7 @@ class Game < ActiveRecord::Base
   end
 
   def game_over?
-    if self.start_time > Time.now
+    if self.start_time < Time.now
       return true
     else
       false
