@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160418191129) do
     t.integer  "away_team_id"
     t.integer  "winner_team_id"
     t.datetime "start_time"
+    t.string   "location"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -59,6 +60,7 @@ ActiveRecord::Schema.define(version: 20160418191129) do
 
   create_table "sports", force: :cascade do |t|
     t.string   "name"
+    t.integer  "team_size"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
