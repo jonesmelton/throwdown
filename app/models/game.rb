@@ -11,5 +11,28 @@ class Game < ActiveRecord::Base
       invitation.user
     end
   end
+  def date
+    time = self.start_time
+    time.strftime("%m-%d-%Y")
+  end
+  def time
+    time = self.start_time
+    time.strftime("%H:%M")
+  end
+
+  def captains
+    captains = []
+    captains << self.home_team.captain
+    captains << self.away_team.captain
+  end
+
+  def game_over?
+    if self.start_time > Time.now
+      return true
+    else
+      false
+    end
+  end
+
 
 end
