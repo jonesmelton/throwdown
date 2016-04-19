@@ -72,7 +72,7 @@
         </tr>
       <% @user.accepted_games.each do |accepted| %>
         <tr>
-          <td><%= link_to accepted.id %></td>
+          <td><%= link_to accepted.id, game_path(accepted) %></td>
           <td><%= link_to accepted.home_team.name, team_path(accepted.home_team) %></td>
           <td><%= link_to accepted.away_team.name, team_path(accepted.away_team) %></td>
         </tr>
