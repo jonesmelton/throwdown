@@ -44,6 +44,9 @@ all_teams = Team.all
 end
 
 100.times do
+  home_team = all_teams.sample 
+  away_team = all_teams.sample 
+  winner_team = [home_team, away_team].sample
   game = Game.new(home_team: all_teams.sample, away_team: all_teams.sample, winner_team: all_teams.sample, location: Faker::Address.street_address)
   season_start = game.home_team.league.season.start_date
   season_end = game.home_team.league.season.end_date
@@ -52,8 +55,8 @@ end
 end
 all_games = Game.all
 
-1000.times do
-  accepted = [true, true, false].sample
+10000.times do
+  accepted = [true, true, true, true, false].sample
   game = all_games.sample 
   team = [game.home_team, game.away_team].sample
   Invitation.create(user: all_users.sample, team: team, game: game, accepted: accepted)
