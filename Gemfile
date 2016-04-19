@@ -1,12 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
-<<<<<<< HEAD
 
 #API such-and-such
 gem 'dotenv'
 # ruby '2.2.3'
-=======
->>>>>>> a1e5a2cba7f5999b664037b2378b169c69186655
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
