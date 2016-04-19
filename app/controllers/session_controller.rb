@@ -7,7 +7,7 @@ class SessionController < ApplicationController
 
   def login
     @user = User.find_by(username: params[:session][:username])
-    if @user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
       puts "user id:--------------------------------------"
       puts session[:user_id]
