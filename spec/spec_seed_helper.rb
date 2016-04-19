@@ -1,1 +1,1 @@
-load "#{Rails.root}/db/seeds.rb"
+# load "#{Rails.root}/db/seeds.rb"
