@@ -1,0 +1,9 @@
+
+<h3>Team Name: <%= @team.name %></h3>
+<h4>Record: <%= @team.win_count %> - <%= @team.loss_count %></h4>
+<%= render "team_tabs" %>
+<div class="tab-content team-partial-wrapper">
+  <%= render "team_players" %>
+  <%= render "team_schedule" %>
+  <%= render "team_stats" %>
+</div>
