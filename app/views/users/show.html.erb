@@ -2,8 +2,19 @@
 <%= @user.first_name %>
 <%= @user.last_name %></h2>
 
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#"><i class="fa fa-anchor" aria-hidden="true"></i> Teams I Captain</a></li>
+  <li role="presentation"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Invitations</a></li>
+  <li role="presentation"><a href="#"><i class="fa fa-trophy" aria-hidden="true"></i> Games</a></li>
+  <li role="presentation"><a href="#"><i class="fa fa-users" aria-hidden="true"></i> Teams</a></li>
+</ul>
+
 <div class="row">
+<<<<<<< HEAD
     <div class="panel panel-default col-md-5 col-md-offset-1 user-table">
+=======
+    <div class="panel panel-default col-md-6 user-table">
+>>>>>>> master
       <!-- Default panel contents -->
       <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Sports Played</div>
       <!-- Table -->
@@ -18,7 +29,11 @@
         <% end %>
       </table>
     </div>
+<<<<<<< HEAD
     <div class="panel panel-default col-md-5 user-table ">
+=======
+    <div class="panel panel-default col-md-6 user-table ">
+>>>>>>> master
       <!-- Default panel contents -->
       <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> <%= @user.username%>'s Teams:</div>
       <!-- Table -->
@@ -37,7 +52,11 @@
     </div>
 
 
+<<<<<<< HEAD
     <div class="panel panel-default col-md-5 col-md-offset-1 user-table">
+=======
+    <div class="panel panel-default col-md-6 user-table">
+>>>>>>> master
       <!-- Default panel contents -->
       <div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span> Pending Invites:</div>
       <!-- Table -->
@@ -60,7 +79,11 @@
 
 
 
+<<<<<<< HEAD
     <div class="panel panel-default col-md-5 user-table ">
+=======
+    <div class="panel panel-default col-md-6 user-table ">
+>>>>>>> master
       <!-- Default panel contents -->
       <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> Accepted Invites:</div>
       <!-- Table -->
@@ -72,7 +95,7 @@
         </tr>
       <% @user.accepted_games.each do |accepted| %>
         <tr>
-          <td><%= link_to accepted.id %></td>
+          <td><%= link_to accepted.id, game_path(accepted) %></td>
           <td><%= link_to accepted.home_team.name, team_path(accepted.home_team) %></td>
           <td><%= link_to accepted.away_team.name, team_path(accepted.away_team) %></td>
         </tr>
