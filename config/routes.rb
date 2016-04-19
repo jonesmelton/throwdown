@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  root :to => "pages#index"
+  get '/' => 'pages#index'
   get '/login' => 'session#new'
   post '/login' => 'session#login'
   get '/logout' => 'session#logout'

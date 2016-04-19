@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Alfa+Slab+One' rel='stylesheet' type='text/css'>
   <title>Throwdown</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -9,9 +10,9 @@
 <body>
 
 <%= render "session/navbar"%>
-<div class="container">
+<main class="container">
 <%= yield %>
-</div>
+</main>
 
 </body>
 </html>

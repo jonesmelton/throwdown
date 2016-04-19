@@ -1,6 +1,6 @@
-User:<br>
-<%= @user.first_name %> <br>
-<%= @user.last_name %> <br>
+<h2>User:
+<%= @user.first_name %>
+<%= @user.last_name %></h2>
 
 <div class="row">
     <div class="panel panel-default col-md-5 user-table">
@@ -66,13 +66,15 @@ User:<br>
       <!-- Table -->
       <table class="table">
         <tr>
+          <th>Game</th>
           <th>Home Team</th>
           <th>Away Team</th>
         </tr>
       <% @user.accepted_games.each do |accepted| %>
         <tr>
-          <td><%= link_to accepted.home_team.name, accepted %></td>
-          <td><%= link_to accepted.away_team.name, accepted %></td>
+          <td><%= link_to accepted.id %></td>
+          <td><%= link_to accepted.home_team.name, team_path(accepted.home_team) %></td>
+          <td><%= link_to accepted.away_team.name, team_path(accepted.away_team) %></td>
         </tr>
         <% end %>
       </table>
