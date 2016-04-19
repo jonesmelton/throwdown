@@ -50,22 +50,6 @@ $('.user-teams-table').on('click', '.user-team-link', function(event) {
     });
   }); // end login click handler
 
-// -------- team click handler ajax in users teams ------------------
-$('.user-teams-table').on('click', '.user-team-link', function(event) {
-    event.preventDefault();
-
-    var $link = $(this);
-    console.log("login link" + $link.attr("href"));
-    var ajaxRequest = $.ajax({
-      url: $link.attr("href"),
-      type: 'get'
-    });
-
-    ajaxRequest.done(function (formHtml) {
-      console.log(formHtml);
-      $('.app-wrapper').html(formHtml)
-    });
-  }); // end login click handler
 
 
 
