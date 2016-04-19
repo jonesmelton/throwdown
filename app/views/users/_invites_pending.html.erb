@@ -1,0 +1,15 @@
+<table class="table">
+  <tr>
+    <th>Invite ID</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+  </tr>
+<% @user.pending_invites.each do |pending| %>
+  <tr>
+    <td><%= link_to pending.id, pending %></td>
+    <td><%= link_to pending.team.name, team_path(pending.team_id) %></td>
+    <td><%= link_to pending.game.home_team.name, team_path(pending.game.home_team.id)  %></td>
+
+  </tr>
+  <% end %>
+</table>
