@@ -20,5 +20,19 @@ class Game < ActiveRecord::Base
     time.strftime("%H:%M")
   end
 
+  def captains
+    captains = []
+    captains << self.home_team.captain
+    captains << self.away_team.captain
+  end
+
+  def game_over?
+    if self.start_time > Time.now
+      return true
+    else
+      false
+    end
+  end
+
 
 end
