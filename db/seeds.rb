@@ -52,13 +52,14 @@ end
 end
 all_games = Game.all
 
-300.times do
+1000.times do
   accepted = [true, true, false].sample
-  Invitation.create(user: all_users.sample, team: all_teams.sample, game: all_games.sample, accepted: accepted)
+  game = all_games.sample 
+  team = [game.home_team, game.away_team].sample
+  Invitation.create(user: all_users.sample, team: team, game: game, accepted: accepted)
 end
 
 all_users.each do |user|
-
   UserImage.create(user: user, attachment: Faker::Avatar.image)
 end
 
