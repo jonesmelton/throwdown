@@ -5,11 +5,17 @@ class InvitationsController < ApplicationController
   end
 
   def update
-    p @user = current_user
-    p @invitation = Invitation.find(params[:id])
-    p @invitation.accepted = true;
-    redirect_to current_user
-
+    @invitation = Invitation.find(params[:id])
+    if @invitation.update_attributes(invite_params)
+      redirect_to show
+    else
+      render 'show'
+    end
   end
 
+  private
+
+  def invite_params
+    params.require(:invitation).permit(:accepted)
+  end
 end
