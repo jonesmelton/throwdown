@@ -1,5 +1,17 @@
 <ul class="user-tabs nav nav-pills user_tabs">
-  <li role="presentation" class="active"><a href="#" ><i class="fa fa-users" aria-hidden="true"></i> Teams</a></li>
-  <li role="presentation"><a href="#"><i class="fa fa-trophy" aria-hidden="true"></i> Games</a></li>
-  <li role="presentation"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Invitations</a></li>
+  <li role="presentation" class="active">
+    <%= link_to raw('<i class="fa fa-users" aria-hidden="true"></i> Teams'), @user %>
+  </li>
+
+  <li role="presentation">
+    <a href="#"><i class="fa fa-trophy" aria-hidden="true"></i> Games</a>
+  </li>
+
+  <li role="presentation">
+    <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Invitations</a>
+  </li>
+
+
+
+
 </ul>
