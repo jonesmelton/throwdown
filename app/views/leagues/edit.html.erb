@@ -4,8 +4,8 @@
   <%= f.submit %>
 <% end %>
 
-<%= form_for @league.season do |f| %>
-  <%= f.label :start_date %>
-  <%= f.text_field :start_date %><br>
-  <%= f.submit %>
+<% @league.seasons.each do |season| %>
+  Season ID: <%= link_to season.id, edit_season_path(season) %><br>
 <% end %>
+
+<%= link_to "Create Season", new_season_path %>

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :games, only: [:index, :new, :create, :edit, :show]
   resources :invitations
   resources :leagues
+  resources :seasons
 end

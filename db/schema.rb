@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160418191129) do
     t.integer  "winner_team_id"
     t.datetime "start_time"
     t.string   "location"
+    t.integer  "season_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
@@ -38,7 +39,6 @@ ActiveRecord::Schema.define(version: 20160418191129) do
   create_table "leagues", force: :cascade do |t|
     t.integer  "commissioner_id"
     t.integer  "sport_id"
-    t.integer  "season_id"
     t.string   "name"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160418191129) do
   create_table "seasons", force: :cascade do |t|
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "league_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

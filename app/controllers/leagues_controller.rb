@@ -4,5 +4,6 @@ class LeaguesController < ApplicationController
   end
   def edit
     @league = League.find(params[:id])
+    # @seasons = Season.all.where(league: @league)
   end
 end
