@@ -5,6 +5,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :away_team_id
       t.integer :winner_team_id
       t.datetime :start_time
+      t.string  :location
 
       t.timestamps null: false
     end
