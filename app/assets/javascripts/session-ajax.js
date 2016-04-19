@@ -31,7 +31,7 @@ $( document ).ready(function() {
       console.log(formHtml);
       $('.form-holder').html(formHtml)
     });
-  }); // end login click handler
+  }); // end signup click handler
 
 // -------- team click handler ajax in users teams ------------------
 $('.user-teams-table').on('click', '.user-team-link', function(event) {
@@ -48,7 +48,7 @@ $('.user-teams-table').on('click', '.user-team-link', function(event) {
       console.log(formHtml);
       $('.app-wrapper').html(formHtml)
     });
-  }); // end login click handler
+  }); // end team-link click handler
 
 
 
