@@ -18,7 +18,7 @@ end
 all_users = User.all
 
 ['Basketball', 'Soccer', 'Ultimate Frisbee'].each do |sport_name|
-  Sport.create(name: sport_name)
+  Sport.create(name: sport_name, team_size: 5)
 end
 all_sports = Sport.all
 
@@ -44,7 +44,7 @@ all_teams = Team.all
 end
 
 100.times do
-  game = Game.new(home_team: all_teams.sample, away_team: all_teams.sample, winner_team: all_teams.sample)
+  game = Game.new(home_team: all_teams.sample, away_team: all_teams.sample, winner_team: all_teams.sample, location: Faker::Address.street_address)
   season_start = game.home_team.league.season.start_date
   season_end = game.home_team.league.season.end_date
   game.start_time = Faker::Date.between(season_start, season_end)
