@@ -36,4 +36,11 @@ module SessionHelper
     return false
   end
 
+  def is_league_commissioner?(league)
+    if league.commissioner.id == current_user.id
+      return true
+    end
+    return false
+  end
+
 end
