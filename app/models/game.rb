@@ -16,12 +16,12 @@ class Game < ActiveRecord::Base
   end
 
   def home_participants
-    home_invitations = accepted_invitations.select {|i| i.team == home_team}
+    home_invitations = accepted_invitations.select {|i| i.team == self.home_team}
     return home_invitations.map {|i| i.user }
   end
 
   def away_participants
-    away_invitations = accepted_invitations.select {|i| i.team == away_team}
+    away_invitations = accepted_invitations.select {|i| i.team == self.away_team}
     return away_invitations.map {|i| i.user }
   end
 
