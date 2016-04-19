@@ -13,6 +13,11 @@ body {
   font-size: 3em;
 }
 
+nav.navbar-inverse {
+  background: #1D6823;
+  border-bottom: 1px solid #1D6823;
+}
+
 main.container {
   background: rgba(178, 178, 178, 0.89);
   padding: 30px;
