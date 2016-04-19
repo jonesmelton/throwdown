@@ -53,5 +53,4 @@ $('.user-teams-table').on('click', '.user-team-link', function(event) {
 
 
 
-
 });
