@@ -1,4 +1,4 @@
-<% if is_captain?(@game) && @game.game_over?%>
+<% if is_captain?(@game)%>
 <%= link_to "Edit this game", edit_game_path%>
 <% end %>
 
@@ -10,10 +10,10 @@
     Date: <%= @game.date %><br>
     Time: <%= @game.time %><br>
     Location: <span id="location"><%= @game.location %></span><br>
-    Player Count: <%= @game.participants.count %>
+    Player Count: <%= @game.participants.count %><br>
+    Winner: <%= @game.winner_team.name if @game.game_over? %>
   </div>
 </div>
- <%= render 'edit' %>
 <div id="map">
 
 </div>

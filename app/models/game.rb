@@ -49,6 +49,13 @@ class Game < ActiveRecord::Base
     end
   end
 
+  def teams
+    teams = []
+    teams << [self.home_team.name, self.home_team.id]
+    teams << [self.away_team.name, self.away_team.id]
+
+  end
+
 
 
 end
