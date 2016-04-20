@@ -4,6 +4,7 @@ class RegistrationsController < ApplicationController
   end
 
   def new
+    @user = current_user
     @registration = Registration.new
     @team = Team.find(params[:team_id])
   end
@@ -18,7 +19,7 @@ class RegistrationsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
     @registration = Registration.find(params[:id])
     @team = Team.find(params[:team_id])

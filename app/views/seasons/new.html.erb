@@ -1,13 +1,33 @@
-<%= form_for @season do |f| %>
-<%= f.label :league %>
-<%= f.select (:league_id) do %>
-  <% all_leagues = League.all.map{|league| [league.name, league.id]} %>
-  <%= options_for_select(all_leagues) %>
-<% end %><br>
+<h2>Create Season</h2>
 
-  <%= f.label :start_date %>
-  <%= f.text_field :start_date %><br>
-  <%= f.label :end_date %>
-  <%= f.text_field :end_date %><br>
-  <%= f.submit %>
-<% end %>
+<div class="col-sm-5">
+  <%= form_for @season do |f| %>
+  <%= f.label :league %>
+  <%= f.select (:league_id) do %>
+    <% all_leagues = League.all.map{|league| [league.name, league.id]} %>
+    <%= options_for_select(all_leagues) %>
+  <% end %><br>
+    
+    <div class="form-group">
+      <%= f.label :start_date %>
+      <div class="input-group date datetimepicker">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+            Choose
+        </div>
+        <%= f.text_field :start_date, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :end_date %>
+      <div class="input-group date datetimepicker">
+      <div class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+          Choose
+      </div>
+        <%= f.text_field :end_date, class: "form-control" %>
+      </div>
+    </div>
+    <%= f.submit "Create Season", class: "btn btn-primary" %>
+  <% end %>
+</div>

@@ -20,7 +20,7 @@
   <tr<% if logged_in? && current_user == team.captain %>
     class="info"
   <% end %>>
-    <td id="team-<%= team.id %>-link"><%= link_to team.name, team, class: "user-team-link" %></td>
+    <td id="team-<%= team.id %>-link"><%= link_to team.name, team, class: "user-team-link" %> - <%= team.league.sport.name %></td>
     <td>
       <%= link_to team.captain.full_name, team.captain %>
       <% if logged_in? && current_user == team.captain %>

@@ -4,8 +4,8 @@
   <%= f.submit %>
 <% end %>
 
-<% @league.seasons.each do |season| %>
-  Season ID: <%= link_to season.id, edit_season_path(season) %><br>
+<% @league.seasons.each do |s| %>
+  Season: <%= link_to "#{s.nice_date_only(s.start_date)} to #{s.nice_date_only(s.end_date)}", edit_season_path(s) %><br>
 <% end %>
 
 <%= link_to "Create Season", new_season_path %>
