@@ -14,7 +14,7 @@
       <tr>
         <td><%= league.name %></td>
         <td><%= league.sport.name %></td>
-        <td> <%= league.commissioner.username %> </td>
+        <td> <%= league.commissioner.full_name %> </td>
         <% if is_league_commissioner?(league) %>
           <td><%= link_to "Edit", edit_league_path(league) %></td>
         <% end %>
