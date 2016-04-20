@@ -3,6 +3,16 @@
     <h1 class="logo">Throwdown</h1>
     <a class="btn btn-success btn-lg login-landing-btn" href="/login">Login</a>
     <a class="btn btn-success btn-lg sign-up-landing-btn" href="/users/new">Sign up </a>
-    <div class="form-holder"></div>
+    <% if flash[:notice] %>
+      <div class="danger"><%= flash[:notice] %></div>
+    <% end %>
+    <%if @errors%>
+      <ul>
+      <%@errors.each do |error|%>
+        <li class="danger"><%=error%></li>
+        <%end%>
+      </ul>
+    <%end%>
+    <div class="form-holder center-block"></div>
   </div>
 </div>

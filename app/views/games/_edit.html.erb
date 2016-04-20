@@ -1,0 +1,4 @@
+<% if is_captain?(@game) && @game.game_over? %>
+<h2> Which team won?</h2>
+  <%= button_to [@game.home_team.name, edit_game_path(@game)], {action: "update", id: @game.id}, method: :patch %>
+<% end %>

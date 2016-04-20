@@ -3,12 +3,15 @@
 <table class="table">
   <tr>
     <th>Location/time</th>
-    <th>Opponent</th>
+    <th>Game</th>
   </tr>
   <% @user.next_ten.each do |game|%>
     <tr>
-      <td><%= link_to raw(game.location + '<br>' + game.start_time.to_date.to_s), game, class: "upcoming-game-link" %>
-      <td><%= game.home_team.name %> Vs<br><%= game.away_team.name %></td>
+      <td><%= link_to raw(game.nice_date(game.start_time) + '<br><br>at ' + game.location), game, class: "upcoming-game-link" %>
+      <td>
+        <%= game.sport_played.name %> Throwdown: <br><br>
+        <%= game.home_team.name %> Vs <br><%= game.away_team.name %>
+      </td>
     </tr>
   <% end %>
 </table>

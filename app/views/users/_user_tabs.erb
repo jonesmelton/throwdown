@@ -6,10 +6,11 @@
   <li role="presentation">
     <a href="#all_games" data-toggle="tab"><i class="fa fa-trophy" aria-hidden="true"></i> All <%= @user.first_name %>'s Games</a>
   </li>
-
+  <% if current_user == @user %>
   <li role="presentation">
     <a href="#invites_pending" data-toggle="tab"><i class="fa fa-envelope" aria-hidden="true"></i> Invitations<span class="badge"><%= @user.pending_invites.count %></span></a>
   </li>
+  <% end %>
 
 
 

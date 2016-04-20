@@ -1,7 +1,7 @@
 <%= form_for ([@team, @registration]) do |f| %>
 <%= f.label :player %>
 <%= f.select (:player_id) do %>
-  <% players = @team.players.all.map { |user| [user.username, user.id] } %>
+  <% players = @team.players.all.map { |user| [user.full_name, user.id] } %>
   <%= options_for_select(players) %>
   <%= f.submit "Remove Registration" %>
   <% end %>

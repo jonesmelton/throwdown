@@ -12,12 +12,12 @@
         <div class="tab-pane fade" id="all_games">
           <%= render "all_games" %>
         </div>
-
         <div class="tab-pane fade" id="invites_pending">
+      <% if current_user == @user %>
           <%= render "invites_pending" %>
+      <% end %>
         </div>
       </div>
-
 
 
     </div>
