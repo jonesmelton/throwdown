@@ -43,4 +43,5 @@ class User < ActiveRecord::Base
     sort_upcoming_games.first(10)
   end
 
+
 end

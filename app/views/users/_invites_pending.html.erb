@@ -8,7 +8,7 @@
   </tr>
 <% @user.pending_invites.each do |pending| %>
   <tr>
-    <td><%= link_to 'View Invite', pending, class: "btn btn-primary btn-xs" %></td>
+    <td><%= link_to 'View Invite', game_invitation_path(pending.game.id, pending.id), class: "btn btn-primary btn-xs" %></td>
     <td><%= link_to pending.team.name, team_path(pending.team_id) %></td>
     <td><%= link_to pending.game.home_team.name, team_path(pending.game.home_team.id)  %></td>
 

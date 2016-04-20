@@ -1,9 +1,8 @@
 class RegistrationsController < ApplicationController
   def index
     @team = Team.find(params[:team_id])
-    
-
   end
+
   def new
     @registration = Registration.new
     @team = Team.find(params[:team_id])
@@ -19,6 +18,7 @@ class RegistrationsController < ApplicationController
       render 'new'
     end
   end
+  
   def edit
     @registration = Registration.find(params[:id])
     @team = Team.find(params[:team_id])
