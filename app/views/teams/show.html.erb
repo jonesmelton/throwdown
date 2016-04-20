@@ -1,73 +1,11 @@
-<h2>Team Name: <%= @team.name %></h2>
-<h3>Record: <%= @team.win_count %> - <%= @team.loss_count %></h3>
-<div class="row">
-  <div class="panel panel-default col-md-5 col-md-offset-1 user-table ">
-    <!-- Default panel contents -->
-    <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Players</div>
-    <!-- Table -->
-    <table class="table">
-      <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Games Played Count</th>
-      </tr>
-      <% @team.players.each do |player| %>
-      <tr>
-        <td><%= player.first_name %></td>
-        <td><%= player.last_name %></td>
-        <td><%= player.registrations.count %></td>
-      </tr>
-      <% end %>
-    </table>
+<div class="center-block">
+  <h2 class="text-center">Team Name: <%= @team.name %></h2>
+  <h3 class="text-center">Record: <%= @team.win_count %> - <%= @team.loss_count %></h3>
+
+  <%= render "team_tabs" %>
+  <div class="tab-content team-partial-wrapper">
+    <%= render "team_players" %>
+    <%= render "team_schedule" %>
+    <%= render "team_stats" %>    
   </div>
-</div>
-<div class="row">
-  <div class="panel panel-default col-md-8 col-md-offset-2 user-table ">
-    <!-- Default panel contents -->
-    <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Upcoming Games</div>
-    <!-- Table -->
-    <table class="table">
-      <tr>
-        <th>Date</th>
-        <th>Start Time</th>
-        <th>Location</th>
-        <th>Home Team</th>
-        <th>Away Team</th>
-      </tr>
-      <% @team.upcoming_games.each do |game| %>
-      <tr>
-        <td><%= game.date %></td>
-        <td><%= game.time %></td>
-        <td> <%= game.location %> </td>
-        <td><%= "#{game.home_team.name} (#{game.home_team.win_count}-#{game.home_team.loss_count})" %></td>
-        <td><%= "#{game.away_team.name} (#{game.away_team.win_count}-#{game.away_team.loss_count})" %></td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
-<div class="row">
-  <div class="panel panel-default col-md-8 col-md-offset-2 user-table ">
-    <!-- Default panel contents -->
-    <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Completed Games</div>
-    <!-- Table -->
-    <table class="table">
-      <tr>
-        <th>Date</th>
-        <th>Location</th>
-        <th>Home Team</th>
-        <th>Away Team</th>
-        <th>Winner</th>
-      </tr>
-      <% @team.finished_games.each do |game| %>
-      <tr>
-        <td><%= game.date %></td>
-        <td> <%= game.location %> </td>
-        <td><%= "#{game.home_team.name} (#{game.home_team.win_count}-#{game.home_team.loss_count})" %></td>
-        <td><%= "#{game.away_team.name} (#{game.away_team.win_count}-#{game.away_team.loss_count})" %></td>
-        <td><%= game.winner_team.name %></td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
+</div> 
