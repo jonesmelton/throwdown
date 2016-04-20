@@ -1,8 +1,13 @@
   <table class="table">
     <tr>
+      <% if current_user.id == @team.captain.id %>
+      <a href="/teams/<%= @team.id %>/registrations/new">+ Add Player</a>
+    <% end %>
+    </tr>
+    <tr>
       <th>Player Name</th>
       <th>Games Played Count</th>
-    </tr>
+    </tr>    
     <% @team.players.each do |player| %>
     <tr>
       <td><%= link_to player.full_name, player %></td>

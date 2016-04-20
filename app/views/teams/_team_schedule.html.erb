@@ -1,6 +1,12 @@
   <h4>Upcoming Games</h4>
   <table class="table">
     <tr>
+      <% if current_user.id == @team.captain.id %>
+      <%= link_to "+ Add Game", new_game_path %>
+      
+    <% end %>
+    </tr>
+    <tr>
       <th>When</th>
       <th>Where</th>
       <th>Teams</th>
