@@ -49,4 +49,17 @@ class InvitationsController < ApplicationController
     redirect_to '/' unless owner?(@invitation) || is_captain?(@game)
   end
 
+  def send_twilio_msg(phone_number, msg)
+    @twilio_number = ENV['TWILIO_NUMBER']
+    @client = Twilio::REST::Client.new ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN']
+    time_str = ((self.time).localtime).strftime("%I:%M%p on %b. %d, %Y")
+    reminder = "Hi #{self.name}. Just a reminder that you have an appointment coming up at #{time_str}."
+    message = @client.account.messages.create(
+      :from => @twilio_number,
+      :to => self.phone_number,
+      :body => reminder,
+    )
+    puts message.to
+  end
+
 end
