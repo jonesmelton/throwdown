@@ -17,7 +17,9 @@ class TeamsController < ApplicationController
   end
 
   def create
+    p team_params
     @team = Team.new(team_params)
+    @team.captain_id = current_user.id
     if @team.save
       redirect_to team_path(@team)
     else
@@ -27,6 +29,6 @@ class TeamsController < ApplicationController
 
    private
   def team_params
-    params.require(:team).permit(:name, :league)
+    params.require(:team).permit(:name, :league_id)
   end
 end
