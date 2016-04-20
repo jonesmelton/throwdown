@@ -1,12 +1,14 @@
 class InvitationsController < ApplicationController
+  before_filter :authorize_user, except: :update
 
   def show
-    @invitation = Invitation.find(params[:id])
     @game = Game.find(params[:game_id])
+    @invitation = Invitation.find(params[:id])
   end
 
   def update
     @invitation = Invitation.find(params[:id])
+    @game = @invitation.game
     if @invitation.update_attributes(accepted_params)
       redirect_to show
     else
@@ -36,7 +38,15 @@ class InvitationsController < ApplicationController
   def invite_params
     params.require(:invitation).permit(:user_id)
   end
+
   def accepted_params
     params.require(:invitation).permit(:accepted)
   end
+
+  def authorize_user
+    @game = Game.find(params[:game_id])
+    @invitation = Invitation.find(params[:id])
+    redirect_to '/' unless owner?(@invitation) || is_captain?(@game)
+  end
+
 end

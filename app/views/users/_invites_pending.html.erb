@@ -1,3 +1,4 @@
+<% if current_user == @user %>
 <h4><%= @user.first_name %>'s Pending Invites</h4>
 
 <table class="table">
@@ -21,3 +22,4 @@
   </tr>
   <% end %>
 </table>
+<% end %>
