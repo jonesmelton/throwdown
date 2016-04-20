@@ -1,10 +1,10 @@
 <div class="center-block">
+  <div class="text-center"><%= image_tag(@team.team_image.first.attachment, class:"img-circle text-center", size: "200") %></div>
   <h2 class="text-center">Team Name: <%= @team.name %></h2>
   <h3 class="text-center">Record: <%= @team.win_count %> - <%= @team.loss_count %></h3>
-
   <%= render "team_tabs" %>
   <div class="tab-content team-partial-wrapper">
-    <div role="tabpanel" class="tab-pane fade in active" id="players"> 
+    <div role="tabpanel" class="tab-pane fade in active" id="players">
       <%= render "team_players" %>
     </div>
     <div role="tabpanel" class="tab-pane fade" id="schedule">
@@ -12,6 +12,6 @@
     </div>
     <div role="tabpanel" class="tab-pane fade" id="stats">
       <%= render "team_stats" %>
-    </div>    
+    </div>
   </div>
-</div> 
+</div>
