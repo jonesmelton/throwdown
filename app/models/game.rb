@@ -1,13 +1,19 @@
+# require 'chronic'
 class Game < ActiveRecord::Base
-  
+
   # Usage: my_game.nice_date(my_game.start_time)
   include NicelyDated
+  include Chronic
 
   belongs_to :home_team, class_name: "Team", foreign_key: :home_team_id
   belongs_to :away_team, class_name: "Team", foreign_key: :away_team_id
   belongs_to :winner_team, class_name: "Team", foreign_key: :winner_team_id
   belongs_to :season
   has_many :invitations
+
+  def start_time=(given_time)
+    write_attribute(:start_time, Chronic.parse(given_time).to_datetime.to_s)
+  end
 
   def accepted_invitations
     self.invitations.where(accepted: true)
@@ -90,7 +96,7 @@ class Game < ActiveRecord::Base
   end
 
   def has_on_winning_team?(user)
-    if winner_team == home_team 
+    if winner_team == home_team
       return true if home_participants.include?(user)
     elsif winner_team == away_team
       return true if away_participants.include?(user)
