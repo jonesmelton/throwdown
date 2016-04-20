@@ -3,9 +3,11 @@
     <div class="col-sm-4">
       <h4><%= @user.first_name %>'s Teams</h4>
     </div>
+    <% if @user.id == current_user.id %>
     <div class="col-sm-4">
       <%= link_to raw('<button type="button" class="btn btn-primary">Create Team</button>'), new_team_path %>
     </div>
+    <% end %>
   </div>
 </div>
 
