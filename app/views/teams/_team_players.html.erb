@@ -1,7 +1,9 @@
   <table class="table">
     <tr>
       <% if logged_in? && current_user.id == @team.captain.id %>
-      <a href="/teams/<%= @team.id %>/registrations/new">+ Add Player</a>
+      <br>
+      <a class="btn btn-xs btn-primary" href="/teams/<%= @team.id %>/registrations/new">+ Add Player</a>
+      <br>
     <% end %>
     </tr>
     <tr>

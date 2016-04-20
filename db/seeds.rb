@@ -6,7 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-10.times do
+addresses = [
+  '3335 N.E. Mohawk Kansas City MO',
+  '6609 NW 127th St. Oklahoma City OK',
+  '532 W. Tremont St. Chicago IL 60621',
+  '1934 Schomer Road Aurora IL 60506',
+  '1735 Margaret Ln. Aurora IL 60506 ',
+  '8634 Haven Dr. Rogers AR',
+  '7833 Peoria St. Chicago IL',
+  '1347 Clybourne St. Batavia IL 60510',
+  '8 Maplewood Ct. Greenbelt MD',
+  '234th Ave. SE Maple Valley WA 98038',
+  '1960 Opal Dr. Aurora IL 60506'
+]
+
+15.times do
   username = Faker::Internet.user_name
   User.create(first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -49,7 +63,7 @@ end
   away_team = all_teams.sample
   season = all_seasons.sample
   winner_team = [home_team, away_team].sample
-  game = Game.new(home_team: home_team, away_team: away_team, winner_team: winner_team, location: Faker::Address.street_address, season: season )
+  game = Game.new(home_team: home_team, away_team: away_team, winner_team: winner_team, location: addresses.sample, season: season )
   season_start = game.season.start_date
   season_end = game.season.end_date
   game.start_time = Faker::Date.between(season_start, season_end)
@@ -64,10 +78,13 @@ all_games = Game.all
   Invitation.create(user: all_users.sample, team: team, game: game, accepted: accepted)
 end
 
+i = 0
 all_users.each do |user|
-  UserImage.create(user: user, attachment: Faker::Avatar.image)
+  gender = ['men', 'women'].sample
+  UserImage.create(user: user, attachment: "https://randomuser.me/api/portraits/#{gender}/#{i}.jpg")
+  i += 1
 end
 
 all_teams.each do |team|
-  TeamImage.create(team: team, attachment: Faker::Avatar.image)
+  TeamImage.create(team: team, attachment: "http://lorempixel.com/400/200/")
 end

@@ -2,7 +2,7 @@
   <table class="table">
     <tr>
       <% if current_user.id == @team.captain.id %>
-      <%= link_to "+ Add Game", new_game_path %>
+      <%= link_to "+ Add Game", new_game_path, class: "btn btn-primary btn-xs" %><br>
       
     <% end %>
     </tr>
