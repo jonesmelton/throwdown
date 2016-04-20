@@ -6,7 +6,7 @@
   <div class="panel-body">
     Start Time: <%= @invitation.game.start_time %><br>
     Location: <br>
-    Player Count: <%= @invitation.game.participants.count %> 
+    Player Count: <%= @invitation.game.participants.count %>
   </div>
 </div>
 
@@ -30,9 +30,9 @@
 </div>
 
 <div>
-<%= form_for @invitation do |f| %>
-  Accept?: <%= f.check_box :accepted %>
-  <%= f.submit %>
-<% end %>
+  <%= form_for ([@game, @invitation]) do |f| %>
+    Accept?: <%= f.check_box :accepted %>
+    <%= f.submit %>
+  <% end %>
 </div>
 <div class="clearfix"></div>
