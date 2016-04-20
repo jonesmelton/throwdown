@@ -5,5 +5,5 @@
     <% players = @game.untouched_participants.map { |user| [user.username, user.id]} %>
     <%= options_for_select(players) %>
     <% end %>
-    <%= f.submit "Send Invitation" %>
+    <%= f.submit "Send Invitation", class: "btn btn-warning btn-xs" %>
   <% end %>

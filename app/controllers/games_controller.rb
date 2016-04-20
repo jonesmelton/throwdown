@@ -24,7 +24,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    if @game.update_attributes(game_params)
+    if @game.update_attributes(create_params)
       redirect_to show
     else
       render 'show'
@@ -33,10 +33,7 @@ class GamesController < ApplicationController
 
   private
   def create_params
-    params.require(:game).permit(:home_team_id, :away_team_id, :start_time)
+    params.require(:game).permit(:home_team_id, :away_team_id, :start_time, :winner_team_id, :location, :season_id)
   end
 
-  def game_params
-    params.require(:game).permit(:winner_team_id)
-  end
 end

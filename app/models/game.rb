@@ -9,6 +9,10 @@ class Game < ActiveRecord::Base
   belongs_to :season
   has_many :invitations
 
+  def start_time=(given_time)
+    write_attribute(:start_time, given_time.to_s.to_datetime)
+  end
+
   def accepted_invitations
     self.invitations.where(accepted: true)
   end
@@ -97,7 +101,6 @@ class Game < ActiveRecord::Base
     end
     return false
   end
-
 
 
 end
