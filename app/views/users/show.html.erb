@@ -1,6 +1,10 @@
 
-<div class="text-center"><%= image_tag(@user.user_images.first.attachment, class:"img-circle text-center", size: "150") %></div>
+<% if @user.user_images.first != nil %>
+  <div class="text-center"><%= image_tag(@user.user_images.first.attachment, class:"img-circle text-center", size: "150") %></div>
+<% end %>
+
 <h2 class="text-center"><%= @user.full_name %>'s Profile</h2>
+
 <%= render "user_tabs" %>
 <div class="container">
   <div class="row">
