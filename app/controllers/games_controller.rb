@@ -33,7 +33,7 @@ class GamesController < ApplicationController
 
   private
   def create_params
-    params.require(:game).permit(:home_team_id, :away_team_id, :start_time)
+    params.require(:game).permit(:location, :home_team_id, :away_team_id, :start_time, :season_id)
   end
 
   def game_params

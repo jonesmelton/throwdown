@@ -4,6 +4,7 @@ require_relative "rails_helper"
 describe 'some of the models' do
   describe 'user' do
     let(:user) {User.first}
+    let(:users) {User.all}
     it 'has one or more user images' do
       expect(user.user_images.first.is_a? UserImage).to be true
     end
