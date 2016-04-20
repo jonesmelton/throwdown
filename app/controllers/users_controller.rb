@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :redirect_visitors, only: [ :create, :new]
+
   def new
     @user = User.new
     if request.xhr?

@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  skip_before_action :redirect_visitors, only: [ :login, :new]
 
   def new
     @user = User.new

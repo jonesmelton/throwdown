@@ -43,4 +43,14 @@ module SessionHelper
     return false
   end
 
+  def visitor?
+    session[:user_id] == nil
+  end
+
+  def redirect_visitors
+    if visitor?
+      redirect_to '/'
+    end
+  end
+
 end
