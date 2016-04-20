@@ -14,13 +14,16 @@ class User < ActiveRecord::Base
     accepted_invites = self.invitations.where(accepted: true)
     return accepted_invites.map {|invitation| invitation.game}
   end
+
   def pending_invites
     pending_invites = self.invitations.where(accepted: false)
     return pending_invites.map {|invitation| invitation}
   end
+
   def full_name
     self.first_name + " " + self.last_name
   end
+
   def played_sports
     self.sports.uniq
   end
