@@ -1,14 +1,14 @@
 class GamesController < ApplicationController
-
   def new
     @game = Game.new()
   end
+
   def show
     @game = Game.find(params[:id])
   end
 
   def index
-  
+
   end
 
   def create

@@ -10,7 +10,7 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.find(params[:id])
     @game = @invitation.game
     if @invitation.update_attributes(accepted_params)
-      redirect_to show
+      redirect_to game_invitation_path(@game.id, @invitation.id)
     else
       render 'show'
     end
