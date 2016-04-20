@@ -53,7 +53,15 @@ class Game < ActiveRecord::Base
     teams = []
     teams << [self.home_team.name, self.home_team.id]
     teams << [self.away_team.name, self.away_team.id]
+  end
 
+  def has_on_winning_team?(user)
+    if winner_team == home_team 
+      return true if home_participants.include?(user)
+    elsif winner_team == away_team
+      return true if away_participants.include?(user)
+    end
+    return false
   end
 
 
