@@ -1,33 +1,31 @@
-User:<br>
-<%= @user.first_name %> <br>
-<%= @user.last_name %> <br>
+<h2><%= @user.full_name %>'s Profile</h2>
+<%= render "user_tabs" %>
+<div class="container">
+  <div class="row">
+    <div class="app-wrapper col-sm-10 col-md-7">
 
-Games:<br>
-<ul>
-  <% @games.each do |game| %>
-    <li><%= game.home_team_id %><br>
-    <%= game.away_team_id %><br></li>
-  <% end %>
-</ul>
+      <div class="tab-content team-partial-wrapper">
+        <div class="tab-pane fade in active" id="user_teams">
+          <%= render "user_teams" %>
+        </div>
 
-Teams: <br>
-<ul>
-  <% @user.teams.each do |team| %>
-    <li><%= team.name %></li><br>
-    <li><%= team.captain.username %></li><br>
-  <% end %>
-</ul>
+        <div class="tab-pane fade" id="all_games">
+          <%= render "all_games" %>
+        </div>
 
-Pending Invites<br>
-  <ul>
-    <% @user.pending_invites.each do |pending| %>
-      <li><%= pending.game_id %></li><br>
-    <% end %>
-  </ul>
+        <div class="tab-pane fade" id="invites_pending">
+          <%= render "invites_pending" %>
+        </div>
+      </div>
 
-  Accepted Invites<br>
-  <ul>
-    <% @user.accepted_games.each do |accepted| %>
-      <li><%= accepted.game_id %></li><br>
-    <% end %>
-  </ul>
+
+
+    </div>
+    <div class="user-sidebar bg-primary col-sm-10 col-md-4">
+      <h2><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @user.first_name %>'s Schedule</h2>
+      <div class="upcoming-games-table">
+        <%= render "upcoming_games" %>
+      </div>
+    </div>
+  </div>
+</div>

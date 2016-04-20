@@ -2,14 +2,17 @@ class SessionController < ApplicationController
 
   def new
     @user = User.new
-    render 'new'
+    if request.xhr?
+      render 'session/_new', layout: false
+    else
+      render 'new'
+    end
   end
 
   def login
     @user = User.find_by(username: params[:session][:username])
-    if @user.authenticate(params[:session][:password])
+    if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
-      puts "user id:--------------------------------------"
       puts session[:user_id]
       redirect_to user_path(@user)
     else
@@ -19,7 +22,8 @@ class SessionController < ApplicationController
   end
 
   def logout
-    logout
+    log_out
+    redirect_to '/'
   end
 
 end

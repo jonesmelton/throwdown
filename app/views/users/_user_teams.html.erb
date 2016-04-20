@@ -1,0 +1,21 @@
+<h4><%= @user.first_name %>'s Teams</h4>
+<table class="table user-teams-table">
+  <tr>
+    <th>Team Name</th>
+    <th>Captain</th>
+  </tr>
+  <% @user.teams.each do |team| %>
+  <tr<% if logged_in? && current_user == team.captain %>
+    class="info"  
+  <% end %>>
+    <td id="team-<%= team.id %>-link"><%= link_to team.name, team, class: "user-team-link" %></td>
+    <td>
+      <%= link_to team.captain.username, team.captain %>
+      <% if logged_in? && current_user == team.captain %>
+        (you)  
+      <% end %>
+     
+    </td>
+  </tr>
+  <% end %>
+</table>

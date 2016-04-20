@@ -1,0 +1,21 @@
+
+<h3>Team: <%= @team.name %> (<%= @team.league.sport.name %>)</h3>
+<h4>
+  <% if logged_in? && @team.captain == current_user %>
+    <%= link_to "Manage Team", @team, class: "btn btn-warning btn-sm" %>
+  <% end %>
+  Record: <%= @team.win_count %> - <%= @team.loss_count %>
+</h4>
+
+<%= render "team_tabs" %>
+<div class="tab-content team-partial-wrapper">
+  <div role="tabpanel" class="tab-pane fade in active" id="players"> 
+    <%= render "team_players" %>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="schedule">
+    <%= render "team_schedule" %>
+  </div>
+  <div role="tabpanel" class="tab-pane fade" id="stats">
+    <%= render "team_stats" %>
+  </div>
+</div>

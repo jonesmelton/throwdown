@@ -1,0 +1,15 @@
+<h2 class="text-center">Register</h2>
+<%= form_for @team, html: {id: "registration-form"} do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+    <%= f.label :league %>
+    <%= f.select (:league_id) do %>
+      <% all_leagues = League.all.map{|league| ["(#{league.sport.name}) #{league.name}", league.id, ]} %>
+      <%= options_for_select(all_leagues) %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <%= f.submit class: "btn btn-success center-block" %>
+  </div>
+<% end %>
