@@ -1,5 +1,9 @@
 
-<img src="<%= @user.user_images.first.attachment%>">
+
+<% if @user.user_images.first != nil %>
+  <img src="<%= @user.user_images.first.attachment%>">
+<% end %>
+
 <h2><%= @user.full_name %>'s Profile</h2>
 <%= render "user_tabs" %>
 <div class="container">
