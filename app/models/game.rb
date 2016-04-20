@@ -10,6 +10,34 @@ class Game < ActiveRecord::Base
     self.invitations.where(accepted: true)
   end
 
+  def sport_played
+    self.season.league.sport
+  end
+
+  def minimum_team_size
+    self.sport_played.team_size
+  end
+
+  def home_percentage_of_quota
+    percentage = (100.0 * (home_participants.count.to_f / minimum_team_size.to_f))
+    return (percentage > 100) ? 100 : percentage.floor
+  end
+
+  def away_percentage_of_quota
+    percentage = (100.0 * (away_participants.count.to_f / minimum_team_size.to_f))
+    return (percentage > 100) ? 100 : percentage.floor
+  end
+
+  def home_lack
+    lack = minimum_team_size - home_participants.count
+    return (lack < 0) ? 0 : lack
+  end
+
+  def away_lack
+    lack = minimum_team_size - away_participants.count
+    return (lack < 0) ? 0 : lack
+  end
+
   def participants
     return accepted_invitations.map do |invitation|
       invitation.user
