@@ -14,4 +14,8 @@ $(document).ready(function() {
     $('#twinkle').css({top: y, left: x}).fadeIn('fast').delay(200).fadeOut('slow')
   })
 
+  $('.datetimepicker').datetimepicker({
+    format: "YYYY/MM/DD, hh:mm a"
+  });
+
 })

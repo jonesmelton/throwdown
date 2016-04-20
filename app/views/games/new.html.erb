@@ -1,17 +1,52 @@
-<%= form_for @game do |f| %>
-<%= f.label :home_team %>
-<%= f.select (:home_team_id) do %>
-  <% cteams_array = current_user.captained_teams.all.map { |team| [team.name, team.id] } %>
-  <%= options_for_select(cteams_array) %>
-<% end %><br>
-  <%= f.label :away_team %>
-<%= f.select(:away_team_id) do %>
-  <% all_teams = Team.all.map{|team| [team.name, team.id]} %>
-  <%= options_for_select(all_teams) %>
-<% end %><br>
-  <%= f.label :location %>
-  <%= f.text_field :location %> <br>
-  <%= f.label :start_time %>
-  <%= f.text_field :start_time%><br>
-  <%= f.submit %><br>
-<% end %>
+<div class="col-sm-5">
+  <%= form_for @game do |f| %>
+  <div class="form-group">
+    <%= f.label :home_team %>
+    <div class="input-group">
+      <%= f.select (:home_team_id) do %>
+        <% cteams_array = current_user.captained_teams.all.map { |team| [team.name, team.id] } %>
+        <%= options_for_select(cteams_array) %>
+      <% end %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :away_team %>
+    <div class="input-group">
+      <%= f.select(:away_team_id) do %>
+        <% all_teams = Team.all.map{|team| [team.name, team.id]} %>
+        <%= options_for_select(all_teams) %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :season %>
+    <div class="input-group">
+      <%= f.select(:season_id) do %>
+        <% all_seasons = Season.all.map{|s| ["League: #{s.league.name} (Starting #{s.nice_date_only(s.start_date)}, Ending #{s.nice_date_only(s.end_date)})", s.id]} %>
+        <%= options_for_select(all_seasons) %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :location %>
+    <div class="input-group">
+      <%= f.text_field :location, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_time %>
+    <div class="input-group date datetimepicker">
+      <div class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+          Choose
+      </div>
+      <%= f.text_field :start_time, class: "form-control" %>
+    </div>
+  </div>
+    <%= f.submit "Create Game", class: "btn btn-primary" %><br>
+  <% end %>
+</div>
