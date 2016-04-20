@@ -13,6 +13,14 @@ class InvitationsController < ApplicationController
     end
   end
 
+  def new
+    @invitation = Invitation.new()
+  end
+
+  def create
+    
+  end
+
   private
 
   def invite_params

@@ -25,7 +25,10 @@ class Game < ActiveRecord::Base
     away_invitations = accepted_invitations.select {|i| i.team == self.away_team}
     return away_invitations.map {|i| i.user }
   end
-
+  def untouched_participants
+    users = User.all
+    return (users - participants)
+  end
   def date
     time = self.start_time
     time.strftime("%m-%d-%Y")
