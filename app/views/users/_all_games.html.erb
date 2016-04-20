@@ -1,0 +1,18 @@
+<h4>All of <%= @user.first_name %>'s Games</h4>
+
+<table class="table">
+  <tr>
+    <th>Location/time</th>
+    <th>Opponent</th>
+  </tr>
+  <% @user.sort_accepted_games.reverse.each do |game|%>
+    <tr <% if game.has_on_winning_team?(@user) && game.game_over? %>
+      class="success"
+    <% end %>>
+      <td>
+        <%= link_to raw(game.location + '<br>' + game.start_time.to_date.to_s), game %>
+      </td>
+      <td><%= game.home_team.name %> Vs<br><%=  game.away_team.name %></td>
+    </tr>
+  <% end %>
+</table>
