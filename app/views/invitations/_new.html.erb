@@ -1,0 +1,9 @@
+<% @invitation = Invitation.new %>
+<%= form_for ([@game, @invitation]) do |f| %>
+  <%= f.label :user %>
+  <%= f.select (:user_id) do %>
+    <% players = @game.untouched_participants.map { |user| [user.username, user.id]} %>
+    <%= options_for_select(players) %>
+    <% end %>
+    <%= f.submit "Send Invitation" %>
+  <% end %>

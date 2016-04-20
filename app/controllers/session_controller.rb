@@ -17,8 +17,8 @@ class SessionController < ApplicationController
       puts session[:user_id]
       redirect_to user_path(@user)
     else
-      flash.now[:danger] = 'Incorrect username/password input'
-      render 'new'
+      flash[:notice] = 'Incorrect username/password input'
+      redirect_to '/'
     end
   end
 
