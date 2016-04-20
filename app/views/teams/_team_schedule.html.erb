@@ -15,13 +15,13 @@
     <% @team.upcoming_games.each do |g| %>
       <tr>
         <td>
-          <%= link_to g.start_time.to_date, g%>
+          <%= link_to g.nice_date(g.start_time), g%>
         </td>
         <td>
           <%= g.location %>
         </td>
         <td>
-          <%= g.home_team.name %> vs. <%= g.away_team.name %>
+          <%= link_to g.home_team.name, g.home_team %> vs. <%= link_to g.away_team.name, g.away_team %>
         </td>
       </tr>
     <% end %>
