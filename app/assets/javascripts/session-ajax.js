@@ -46,9 +46,10 @@ $('.user-teams-table').on('click', '.user-team-link', function(event) {
 
     ajaxRequest.done(function (formHtml) {
       console.log(formHtml);
-      $('.app-wrapper').html(formHtml)
+      $('#user_teams').html(formHtml)
     });
   }); // end team-link click handler
+
 
 
 

@@ -3,10 +3,26 @@
 <div class="container">
   <div class="row">
     <div class="app-wrapper col-sm-10 col-md-7">
-      <%= render "user_teams" %>
+
+      <div class="tab-content team-partial-wrapper">
+        <div class="tab-pane fade in active" id="user_teams">
+          <%= render "user_teams" %>
+        </div>
+
+        <div class="tab-pane fade" id="all_games">
+          <%= render "all_games" %>
+        </div>
+
+        <div class="tab-pane fade" id="invites_pending">
+          <%= render "invites_pending" %>
+        </div>
+      </div>
+
+
+
     </div>
     <div class="user-sidebar bg-primary col-sm-10 col-md-4">
-      <h2><i class="fa fa-clock-o" aria-hidden="true"></i> My Schedule</h2>
+      <h2><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @user.first_name %>'s Schedule</h2>
       <div class="upcoming-games-table">
         <%= render "upcoming_games" %>
       </div>

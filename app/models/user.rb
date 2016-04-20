@@ -32,12 +32,11 @@ class User < ActiveRecord::Base
   end
 
   def sort_accepted_games
-    self.accepted_games.sort_by &:start_time
+    (self.accepted_games.sort_by(&:start_time)).uniq
   end
 
   def sort_upcoming_games
-    sort = self.upcoming_games.sort_by &:start_time
-    sort.uniq { |game| game.id}
+    (self.upcoming_games.sort_by(&:start_time)).uniq
   end
 
   def next_ten

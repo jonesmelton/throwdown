@@ -3,10 +3,7 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
     if request.xhr?
       render '_show', layout: false
-    else
-      render 'teams/show3'
     end
-
   end
 
   def index
