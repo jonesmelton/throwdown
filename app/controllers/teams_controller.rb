@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   def show
+    @user = current_user
     @team = Team.find(params[:id])
     if request.xhr?
       render '_show', layout: false
@@ -12,6 +13,7 @@ class TeamsController < ApplicationController
   end
 
   def new
+
     @team = Team.new
     render 'new'
   end
