@@ -16,7 +16,8 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to user_path(@user)
     else
-      render 'new'
+      @errors = @user.errors.full_messages
+      render 'pages/index'
     end
   end
 
