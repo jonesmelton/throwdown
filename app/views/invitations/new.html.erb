@@ -1,8 +1,8 @@
 <%= form_for @invitation do |f| %>
   <%= f.label :user %>
   <%= f.select (:user_id) do %>
-    <% players = @team.players.all.map { |user| [user.username, user.id] } %>
+    <% players = @game.untouched_participants.map { |user| [user.username, user.id]} %>
     <%= options_for_select(players) %>
-    <%= f.submit "Remove Registration" %>
+    <%= f.submit "Send Invitation" %>
     <% end %>
   <% end %>
