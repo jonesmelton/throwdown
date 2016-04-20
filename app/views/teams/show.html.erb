@@ -4,8 +4,14 @@
 
   <%= render "team_tabs" %>
   <div class="tab-content team-partial-wrapper">
-    <%= render "team_players" %>
-    <%= render "team_schedule" %>
-    <%= render "team_stats" %>    
+    <div role="tabpanel" class="tab-pane fade in active" id="players"> 
+      <%= render "team_players" %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="schedule">
+      <%= render "team_schedule" %>
+    </div>
+    <div role="tabpanel" class="tab-pane fade" id="stats">
+      <%= render "team_stats" %>
+    </div>    
   </div>
 </div> 

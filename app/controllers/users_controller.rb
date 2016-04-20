@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  skip_before_action :redirect_visitors, only: [ :create, :new]
+
   def new
     @user = User.new
     if request.xhr?
@@ -14,7 +16,8 @@ class UsersController < ApplicationController
       log_in(@user)
       redirect_to user_path(@user)
     else
-      render 'new'
+      @errors = @user.errors.full_messages
+      render 'pages/index'
     end
   end
 

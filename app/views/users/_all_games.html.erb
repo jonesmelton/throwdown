@@ -10,7 +10,7 @@
       class="success"
     <% end %>>
       <td>
-        <%= link_to raw(game.location + '<br>' + game.start_time.to_date.to_s), game %>
+        <%= link_to raw(game.location + '<br>' + game.nice_date(game.start_time)), game %>
       </td>
       <td><%= game.home_team.name %> Vs<br><%=  game.away_team.name %></td>
     </tr>

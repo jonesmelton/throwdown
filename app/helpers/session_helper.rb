@@ -27,6 +27,10 @@ module SessionHelper
     User.find(session[:user_id]).username
   end
 
+  def is_captain_of_this_team?(team)
+    team.captain == current_user
+  end
+
   def is_captain?(game)
     game.captains.each do |captain|
       if captain.id == current_user.id
@@ -41,6 +45,16 @@ module SessionHelper
       return true
     end
     return false
+  end
+
+  def visitor?
+    session[:user_id] == nil
+  end
+
+  def redirect_visitors
+    if visitor?
+      redirect_to '/'
+    end
   end
 
 end

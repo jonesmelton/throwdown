@@ -1,4 +1,5 @@
 class SessionController < ApplicationController
+  skip_before_action :redirect_visitors, only: [ :login, :new]
 
   def new
     @user = User.new
@@ -16,8 +17,8 @@ class SessionController < ApplicationController
       puts session[:user_id]
       redirect_to user_path(@user)
     else
-      flash.now[:danger] = 'Incorrect username/password input'
-      render 'new'
+      flash[:notice] = 'Incorrect username/password input'
+      redirect_to '/'
     end
   end
 
