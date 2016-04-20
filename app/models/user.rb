@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
   def full_name
     self.first_name + " " + self.last_name
   end
+
   def played_sports
     self.sports.uniq
   end
