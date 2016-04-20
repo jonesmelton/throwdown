@@ -42,11 +42,18 @@ class Game < ActiveRecord::Base
   end
 
   def game_over?
-    if self.start_time > Time.now
+    if self.start_time < Time.now
       return true
     else
       false
     end
+  end
+
+  def teams
+    teams = []
+    teams << [self.home_team.name, self.home_team.id]
+    teams << [self.away_team.name, self.away_team.id]
+
   end
 
 

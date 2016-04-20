@@ -1,0 +1,21 @@
+<% if is_captain?(@game) && @game.game_over?%>
+
+<%= form_for @game do |f| %>
+  <%= f.label :winner %>
+  <%= f.select (:winner_team_id) do %>
+  <%= options_for_select(@game.teams) %>
+  <br><br><%= f.submit %>
+<% end %><br>
+<% end %>
+
+<% else %>
+<%= form_for @game do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %> <br>
+  <%= f.label :start_time %>
+  <%= f.text_field :start_time%><br>
+  <%= f.submit %><br>
+<% end %>
+
+
+<% end %>
