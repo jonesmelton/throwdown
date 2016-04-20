@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :registrations
   end
   resources :games, only: [:index, :new, :create, :edit, :show]
+  patch 'games/:id' => 'games#update'
   resources :invitations
   resources :leagues
   resources :seasons
