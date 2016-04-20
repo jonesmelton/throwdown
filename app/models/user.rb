@@ -14,10 +14,18 @@ class User < ActiveRecord::Base
     accepted_invites = self.invitations.where(accepted: true)
     return accepted_invites.map {|invitation| invitation.game}
   end
+
   def pending_invites
+    invites = []
     pending_invites = self.invitations.where(accepted: false)
-    return pending_invites.map {|invitation| invitation}
+    pending_invites.each do |invitation|
+      if invitation.game.game_over? == false
+        invites << invitation
+      end
+    end
+    return invites
   end
+
   def full_name
     self.first_name + " " + self.last_name
   end
@@ -28,7 +36,7 @@ class User < ActiveRecord::Base
   def upcoming_games
     all_games = self.accepted_games
     current_date = DateTime.now
-    all_games.select { |game| game.start_time > current_date}
+    all_games.select { |game| game.start_time >= current_date}
   end
 
   def sort_accepted_games
