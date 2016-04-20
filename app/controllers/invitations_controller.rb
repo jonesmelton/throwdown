@@ -1,5 +1,5 @@
 class InvitationsController < ApplicationController
-  before_filter :authorize_user, except: :update
+  before_filter :authorize_user, except: [:update, :create]
 
   def show
     @game = Game.find(params[:game_id])
