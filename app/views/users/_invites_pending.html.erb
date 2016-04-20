@@ -4,14 +4,20 @@
 <table class="table">
   <tr>
     <th>Invite ID</th>
-    <th>Home Team</th>
-    <th>Away Team</th>
+    <th>Teams</th>
+    <th>Location/Time</th>
   </tr>
 <% @user.pending_invites.each do |pending| %>
   <tr>
     <td><%= link_to 'View Invite', game_invitation_path(pending.game.id, pending.id), class: "btn btn-primary btn-xs" %></td>
-    <td><%= link_to pending.team.name, team_path(pending.team_id) %></td>
-    <td><%= link_to pending.game.home_team.name, team_path(pending.game.home_team.id)  %></td>
+    <td>
+      <%= pending.game.sport_played.name %> Throwdown:<br>
+      <%= link_to pending.game.home_team.name, team_path(pending.game.home_team) %> <br>vs. 
+      <%= link_to pending.game.away_team.name, team_path(pending.game.away_team)  %>
+    </td>
+    <td>
+      <%= pending.game.nice_date(pending.game.start_time) %> <br>at <%= pending.game.location %>
+    </td>
 
   </tr>
   <% end %>
