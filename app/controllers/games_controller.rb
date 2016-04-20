@@ -17,6 +17,7 @@ class GamesController < ApplicationController
       redirect_to @game
     end
   end
+
   def edit
     @game = Game.find(params[:id])
   end
@@ -35,7 +36,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:home_team_id, :away_team_id, :start_time)
   end
 
-  def invite_params
-    params.require(:game_params).permit(:winner)
+  def game_params
+    params.require(:game).permit(:winner_team_id)
   end
 end

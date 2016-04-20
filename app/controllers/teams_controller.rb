@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
     if request.xhr?
       render '_show', layout: false
     else
-      render 'show'
+      render 'teams/show3'
     end
 
   end
