@@ -15,6 +15,14 @@ class Team < ActiveRecord::Base
   def loss_count
     return (self.home_games.count + self.away_games.count) - self.won_games.count
   end
+ 
+  def win_percentage
+    (100.0 * (win_count.to_f / games.count.to_f)).floor
+  end
+
+  def loss_percentage
+    100 - win_percentage
+  end
 
   def games
     return self.home_games + self.away_games

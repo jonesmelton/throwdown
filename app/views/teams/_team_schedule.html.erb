@@ -1,0 +1,28 @@
+  <h4>Upcoming Games</h4>
+  <table class="table">
+    <tr>
+      <% if current_user.id == @team.captain.id %>
+      <%= link_to "+ Add Game", new_game_path %>
+      
+    <% end %>
+    </tr>
+    <tr>
+      <th>When</th>
+      <th>Where</th>
+      <th>Teams</th>
+    </tr>
+
+    <% @team.upcoming_games.each do |g| %>
+      <tr>
+        <td>
+          <%= link_to g.start_time.to_date, g%>
+        </td>
+        <td>
+          <%= g.location %>
+        </td>
+        <td>
+          <%= g.home_team.name %> vs. <%= g.away_team.name %>
+        </td>
+      </tr>
+    <% end %>
+  </table>

@@ -25,4 +25,22 @@ class User < ActiveRecord::Base
     self.sports.uniq
   end
 
+  def upcoming_games
+    all_games = self.accepted_games
+    current_date = DateTime.now
+    all_games.select { |game| game.start_time > current_date}
+  end
+
+  def sort_accepted_games
+    (self.accepted_games.sort_by(&:start_time)).uniq
+  end
+
+  def sort_upcoming_games
+    (self.upcoming_games.sort_by(&:start_time)).uniq
+  end
+
+  def next_ten
+    sort_upcoming_games.first(10)
+  end
+
 end

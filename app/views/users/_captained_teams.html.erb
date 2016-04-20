@@ -1,7 +1,9 @@
-<div class="panel panel-default col-md-5 user-table">
+
+<div class="panel panel-default col-md-6 user-table">
   <!-- Default panel contents -->
-  <div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span> Teams Captained:</div>
+  <div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span> Teams Captained: <%= link_to "Create a new team", new_team_path %> </div>
   <!-- Table -->
+
   <table class="table">
     <tr>
       <th>Team Name</th>
@@ -14,4 +16,3 @@
     </tr>
     <% end %>
   </table>
-</div>

@@ -1,0 +1,11 @@
+
+<table class="table">
+  <tr>
+    <th>Sport Name</th>
+  </tr>
+  <% @user.played_sports.each do |sport| %>
+  <tr>
+    <td><%= sport.name %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,14 @@
+<h4></h4>
+
+<table class="table">
+  <tr>
+    <th>Location/time</th>
+    <th>Opponent</th>
+  </tr>
+  <% @user.next_ten.each do |game|%>
+    <tr>
+      <td><%= link_to raw(game.location + '<br>' + game.start_time.to_date.to_s), game, class: "upcoming-game-link" %>
+      <td><%= game.home_team.name %> Vs<br><%= game.away_team.name %></td>
+    </tr>
+  <% end %>
+</table>

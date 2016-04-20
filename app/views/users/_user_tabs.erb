@@ -1,0 +1,17 @@
+<ul class="user-tabs nav nav-pills user_tabs">
+  <li role="presentation" class="active">
+    <a href="#user_teams" data-toggle="tab"><i class="fa fa-users" aria-hidden="true"></i> Teams</a>
+  </li>
+
+  <li role="presentation">
+    <a href="#all_games" data-toggle="tab"><i class="fa fa-trophy" aria-hidden="true"></i> All <%= @user.first_name %>'s Games</a>
+  </li>
+
+  <li role="presentation">
+    <a href="#invites_pending" data-toggle="tab"><i class="fa fa-envelope" aria-hidden="true"></i> Invitations<span class="badge"><%= @user.pending_invites.count %></span></a>
+  </li>
+
+
+
+
+</ul>

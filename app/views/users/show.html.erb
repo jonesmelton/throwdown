@@ -1,84 +1,31 @@
-<h2>User:
-<%= @user.first_name %>
-<%= @user.last_name %></h2>
+<h2><%= @user.full_name %>'s Profile</h2>
+<%= render "user_tabs" %>
+<div class="container">
+  <div class="row">
+    <div class="app-wrapper col-sm-10 col-md-7">
 
-<div class="row">
-    <div class="panel panel-default col-md-5 user-table">
-      <!-- Default panel contents -->
-      <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Sports Played</div>
-      <!-- Table -->
-      <table class="table">
-        <tr>
-          <th>Sport Name</th>
-        </tr>
-        <% @user.played_sports.each do |sport| %>
-        <tr>
-          <td><%= sport.name %></td>
-        </tr>
-        <% end %>
-      </table>
+      <div class="tab-content team-partial-wrapper">
+        <div class="tab-pane fade in active" id="user_teams">
+          <%= render "user_teams" %>
+        </div>
+
+        <div class="tab-pane fade" id="all_games">
+          <%= render "all_games" %>
+        </div>
+
+        <div class="tab-pane fade" id="invites_pending">
+          <%= render "invites_pending" %>
+        </div>
+      </div>
+
+
+
     </div>
-    <div class="panel panel-default col-md-5 col-md-offset-1 user-table ">
-      <!-- Default panel contents -->
-      <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> <%= @user.username%>'s Teams:</div>
-      <!-- Table -->
-      <table class="table">
-        <tr>
-          <th>Team Name</th>
-          <th>Captain</th>
-        </tr>
-        <% @user.teams.each do |team| %>
-        <tr>
-          <td><%= link_to team.name, team %></td>
-          <td><%= link_to team.captain.username, team.captain %></td>
-        </tr>
-        <% end %>
-      </table>
+    <div class="user-sidebar bg-primary col-sm-10 col-md-4">
+      <h2><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @user.first_name %>'s Schedule</h2>
+      <div class="upcoming-games-table">
+        <%= render "upcoming_games" %>
+      </div>
     </div>
-
-
-    <div class="panel panel-default col-md-5 user-table">
-      <!-- Default panel contents -->
-      <div class="panel-heading"><span class="glyphicon glyphicon-envelope"></span> Pending Invites:</div>
-      <!-- Table -->
-      <table class="table">
-        <tr>
-          <th>Invite ID</th>
-          <th>Home Team</th>
-          <th>Away Team</th>
-        </tr>
-      <% @user.pending_invites.each do |pending| %>
-        <tr>
-          <td><%= link_to pending.id, pending %></td>
-          <td><%= link_to pending.team.name, team_path(pending.team_id) %></td>
-          <td><%= link_to pending.game.home_team.name, team_path(pending.game.home_team.id)  %></td>
-
-        </tr>
-        <% end %>
-      </table>
-    </div>
-
-
-
-    <div class="panel panel-default col-md-5 user-table  col-md-offset-1">
-      <!-- Default panel contents -->
-      <div class="panel-heading"><span class="glyphicon glyphicon-ok"></span> Accepted Invites:</div>
-      <!-- Table -->
-      <table class="table">
-        <tr>
-          <th>Game</th>
-          <th>Home Team</th>
-          <th>Away Team</th>
-        </tr>
-      <% @user.accepted_games.each do |accepted| %>
-        <tr>
-          <td><%= link_to accepted.id, game_path(accepted) %></td>
-          <td><%= link_to accepted.home_team.name, team_path(accepted.home_team) %></td>
-          <td><%= link_to accepted.away_team.name, team_path(accepted.away_team) %></td>
-        </tr>
-        <% end %>
-      </table>
   </div>
-
-<%= render "captained_teams" %>
 </div>
