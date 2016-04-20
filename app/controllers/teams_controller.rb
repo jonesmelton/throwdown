@@ -6,7 +6,6 @@ class TeamsController < ApplicationController
     else
       render 'teams/show'
     end
-
   end
 
   def index
