@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   post '/addresses' => 'address#convert'
 
   resources :users, only: [:index, :new, :create, :edit, :show]
-  resources :teams, only: [:index, :new, :create, :edit, :show]
+  resources :teams, only: [:index, :new, :create, :edit, :show] do
+    resources :registrations
+  end
   resources :games, only: [:index, :new, :create, :edit, :show]
   patch 'games/:id' => 'games#update'
   resources :invitations

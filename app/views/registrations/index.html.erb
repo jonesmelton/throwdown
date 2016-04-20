@@ -1,0 +1,4 @@
+<% @team.players.each do |player| %>
+  <% registration = Registration.find_by(team: @team, player: player) %>
+  <%= link_to player.username, team_registrations_path([@team.id], [registration]), method: :delete %><br>
+<% end %>
