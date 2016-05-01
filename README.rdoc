@@ -1,28 +1,9 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a three-day "client project" completed as part of a group in week 8 of Dev Boot Camp. This was our first full rails project.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The goal of the project was to meet with one of the teachers as a "client" who would lay out their needs for a site. We would only be able to meet with the client once per day, and at the end produce a product that satisfied the client's changing demands.
 
 
-Please feel free to use a different markup language if you do not plan to run
+
 <tt>rake doc:app</tt>.
